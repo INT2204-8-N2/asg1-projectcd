@@ -8,7 +8,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="640.0" prefWidth="956.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Dictionary.Controller">
+<AnchorPane prefHeight="640.0" prefWidth="956.0" style="-fx-background-color: lightgreen;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Dictionary.Controller">
     <children>
         <TableView fx:id="tableView" layoutX="54.0" layoutY="120.0" onMousePressed="#tableClick" prefHeight="439.0" prefWidth="200.0">
             <columns>
@@ -18,8 +18,8 @@
         <Button layoutX="599.0" layoutY="96.0" mnemonicParsing="false" onAction="#New" text="Thêm " />
         <Button layoutX="843.0" layoutY="96.0" mnemonicParsing="false" onAction="#Edit" text="Sửa" />
         <Button layoutX="876.0" layoutY="583.0" mnemonicParsing="false" onAction="#Save" text="Lưu" />
-        <TextField fx:id="anh" layoutX="350.0" layoutY="96.0" promptText="Tiếng Anh" />
-        <TextField fx:id="search" layoutX="61.0" layoutY="49.0" promptText="Nhập từ" />
+        <TextField fx:id="anh" layoutX="350.0" layoutY="96.0" prefHeight="25.0" prefWidth="149.0" promptText="Tiếng Anh" />
+        <TextField fx:id="search" layoutX="54.0" layoutY="49.0" prefHeight="36.0" prefWidth="149.0" promptText="Nhập từ" />
         <TextArea fx:id="textArea" layoutX="350.0" layoutY="152.0" prefHeight="407.0" prefWidth="582.0" />
         <Button layoutX="242.0" layoutY="49.0" mnemonicParsing="false" onAction="#Search" text="Tìm kiếm" />
         <Text layoutX="403.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dictionary - Team ProjectCD">
@@ -27,6 +27,6 @@
                 <Font name=".VnBook Antiqua Bold" size="36.0" />
             </font>
         </Text>
-        <Button layoutX="719.0" layoutY="96.0" mnemonicParsing="false" onAction="#Delete" text="Xóa " />
+        <Button alignment="CENTER" layoutX="719.0" layoutY="96.0" mnemonicParsing="false" onAction="#Delete" text="Xóa " />
     </children>
 </AnchorPane>
