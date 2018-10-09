@@ -104,13 +104,16 @@ public class Controller implements Initializable {
 
     private void Disable(boolean check) {
         anh.setDisable(check);
-        viet.setDisable(check);
+//        viet.setDisable(check);
+//        textArea.setDisable(check);
+
     }
 
 
     private void Reset() {
-        anh.setText("");
-        viet.setText("");
+          anh.setText("");
+//        viet.setText("");
+        textArea.setText("");
     }
 
     @FXML
@@ -118,7 +121,7 @@ public class Controller implements Initializable {
         try {
             dictionary = new Dictionary();
             dictionary.setEnglish(anh.getText());
-            dictionary.setVietnamese(viet.getText());
+            dictionary.setVietnamese(textArea.getText());
 
             if (row == 0) {
                 data.add(dictionary);
@@ -147,7 +150,6 @@ public class Controller implements Initializable {
     @FXML
     public void New(ActionEvent event) {
         try {
-            row = 0;
             Disable(false);
             Reset();
         } catch (Exception ex) {
@@ -156,7 +158,7 @@ public class Controller implements Initializable {
     }
     @FXML
     public void tableClick(MouseEvent e) throws IOException {
-        if (MouseButton.PRIMARY == e.getButton() && e.getClickCount() == 2) {
+        if (MouseButton.PRIMARY == e.getButton() && e.getClickCount() == 1) {
             dictionary = tableView.getSelectionModel().getSelectedItem();
             anh.setText(dictionary.getEnglish());
         //    viet.setText(dictionary.getVietnamese());
@@ -164,6 +166,10 @@ public class Controller implements Initializable {
             row = tableView.getSelectionModel().getSelectedIndex();
             Disable(true);
         }
+    }
+    public void Delete (ActionEvent e){
+        Dictionary selected = tableView.getSelectionModel().getSelectedItem();
+        data.remove(selected);
     }
 
 }
