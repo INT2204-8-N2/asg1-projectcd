@@ -98,6 +98,9 @@
       </pane>
     </panes>
   </component>
+  <component name="PropertiesComponent">
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1539264653994" />
+  </component>
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
