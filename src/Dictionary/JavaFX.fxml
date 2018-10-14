@@ -14,7 +14,7 @@
           <TableColumn fx:id="english" prefWidth="199.0" text="English" />
         </columns>
       </TableView>
-      <Button layoutX="599.0" layoutY="96.0" mnemonicParsing="false" onAction="#Add" text="New" />
+      <Button layoutX="599.0" layoutY="96.0" mnemonicParsing="false" onAction="#New" text="New" />
       <Button layoutX="843.0" layoutY="96.0" mnemonicParsing="false" onAction="#Edit" text="Edit" />
       <Button layoutX="876.0" layoutY="583.0" mnemonicParsing="false" onAction="#Save" text="Save" />
       <TextField fx:id="anh" layoutX="350.0" layoutY="96.0" promptText="Tiếng Anh" />
@@ -27,5 +27,6 @@
          </font>
       </Text>
       <Button layoutX="719.0" layoutY="96.0" mnemonicParsing="false" onAction="#Delete" text="Delete" />
+      <Button layoutX="499.0" layoutY="96.0" mnemonicParsing="false" onAction="#Speech" text="Speak" />
    </children>
 </AnchorPane>
