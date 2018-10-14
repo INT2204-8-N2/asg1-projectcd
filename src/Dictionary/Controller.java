@@ -16,6 +16,9 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
@@ -57,6 +60,7 @@ public class Controller implements Initializable {
         try {
             content = new String(Files.readAllBytes(Paths.get(fileName)),
                     StandardCharsets.UTF_8);
+
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -147,13 +151,48 @@ public class Controller implements Initializable {
             Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    @FXML
-    public void New(ActionEvent event) {
+//    @FXML
+//    public void New(ActionEvent event) {
+//        try {
+//            Disable(false);
+//            Reset();
+//        } catch (Exception ex) {
+//            Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//    }
+    public void Add (ActionEvent e){
+        Dictionary dictionary = new Dictionary();
+        dictionary.setVietnamese(textArea.getText());
+        dictionary.setEnglish(anh.getText());
+        data.add(dictionary);
+        Disable(false);
+        BufferedWriter bw = null;
+        FileWriter fw = null;
         try {
-            Disable(false);
-            Reset();
-        } catch (Exception ex) {
-            Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+            String newdata = "\n\n" + textArea.getText();
+
+            File file = new File("C:\\Users\\ADMIN\\Downloads\\anhviet109K.txt");
+
+            // kiểm tra nếu file chưa có thì tạo file mới
+            if (!file.exists()) {
+                file.createNewFile();
+            }
+            // true = append file
+            fw = new FileWriter(file.getAbsoluteFile(), true);
+            bw = new BufferedWriter(fw);
+            bw.write(newdata);
+            System.out.println("Xong");
+        } catch (IOException ee) {
+            ee.printStackTrace();
+        } finally {
+            try {
+                if (bw != null)
+                    bw.close();
+                if (fw != null)
+                    fw.close();
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
         }
     }
     @FXML
