@@ -16,7 +16,9 @@ public class Main extends Application {
     public void start(Stage primaryStage) {
         try{
             Parent root = FXMLLoader.load(this.getClass().getResource("JavaFX.fxml"));
-            Scene scene = new Scene(root);
+            Scene scene = new Scene(root,  956, 640);
+            root.setId("pane");
+            scene.getStylesheets().addAll(this.getClass().getResource("style.css").toExternalForm());
             primaryStage.setScene(scene);
             primaryStage.show();
         }catch (Exception e){

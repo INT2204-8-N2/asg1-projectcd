@@ -7,7 +7,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="640.0" prefWidth="956.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Dictionary.Controller">
+<AnchorPane id="pane" prefHeight="640.0" prefWidth="956.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Dictionary.Controller">
    <children>
       <TableView fx:id="tableView" layoutX="54.0" layoutY="120.0" onMousePressed="#tableClick" prefHeight="439.0" prefWidth="200.0">
         <columns>
