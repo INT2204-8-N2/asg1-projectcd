@@ -1,7 +1,6 @@
 package Dictionary;
 
 import javafx.collections.FXCollections;
-import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
@@ -15,11 +14,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
-import jdk.jshell.spi.ExecutionControl;
 
-import javax.speech.Central;
-import javax.speech.synthesis.Synthesizer;
-import javax.speech.synthesis.SynthesizerModeDesc;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -30,15 +25,9 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
-import java.util.Locale;
-import javax.speech.Central;
-import javax.speech.synthesis.Synthesizer;
-import javax.speech.synthesis.SynthesizerModeDesc;
 
 public class Controller implements Initializable {
     @FXML
@@ -64,7 +53,7 @@ public class Controller implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        String fileName = "anhviet109K.txt";//bạn hãy thay đổi đường dẫn tới file của bạn
+        String fileName = "C:\\Users\\Asus K43\\Downloads\\anhviet109K.txt";//bạn hãy thay đổi đường dẫn tới file của bạn
         String content = null;//đưa về chuẩn utf-8
         try {
             content = new String(Files.readAllBytes(Paths.get(fileName)),
@@ -87,7 +76,6 @@ public class Controller implements Initializable {
             data.add(a);
         }
         english.setCellValueFactory(new PropertyValueFactory<>("english"));
-       // vietnamese.setCellValueFactory(new PropertyValueFactory<>("vietnamese"));
         tableView.setItems(data);
     }
     public void Search(){
@@ -101,9 +89,6 @@ public class Controller implements Initializable {
                 if (dictionary.getEnglish().toLowerCase().contains(lowerCaseFilter)) {
                     return true;
                 }
-//                else if (dictionary.getVietnamese().toLowerCase().contains(lowerCaseFilter)) {
-//                    return true;
-//                }
                 return false;
             });
         });
@@ -117,15 +102,11 @@ public class Controller implements Initializable {
 
     private void Disable(boolean check) {
         anh.setDisable(check);
-//        viet.setDisable(check);
-//        textArea.setDisable(check);
-
     }
 
 
     private void Reset() {
           anh.setText("");
-//        viet.setText("");
         textArea.setText("");
     }
 
@@ -160,15 +141,7 @@ public class Controller implements Initializable {
             Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-//    @FXML
-//    public void New(ActionEvent event) {
-//        try {
-//            Disable(false);
-//            Reset();
-//        } catch (Exception ex) {
-//            Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//    }
+
     public void Add (ActionEvent e){
         Dictionary dictionary = new Dictionary();
         dictionary.setVietnamese(textArea.getText());
@@ -180,7 +153,7 @@ public class Controller implements Initializable {
         try {
             String newdata = "\n\n" + textArea.getText();
 
-            File file = new File("anhviet109K.txt");
+            File file = new File("C:\\Users\\Asus K43\\Downloads\\anhviet109K.txt");
 
             // kiểm tra nếu file chưa có thì tạo file mới
             if (!file.exists()) {
@@ -209,7 +182,6 @@ public class Controller implements Initializable {
         if (MouseButton.PRIMARY == e.getButton() && e.getClickCount() == 1) {
             dictionary = tableView.getSelectionModel().getSelectedItem();
             anh.setText(dictionary.getEnglish());
-        //    viet.setText(dictionary.getVietnamese());
             textArea.setText(dictionary.getVietnamese());
             row = tableView.getSelectionModel().getSelectedIndex();
             Disable(true);

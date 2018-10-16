@@ -1,13 +1,6 @@
 package Dictionary;
 
-import java.io.IOException;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.ArrayList;
-
 public class Dictionary {
-   // public static ArrayList<Dictionary> dictionaries = new ArrayList<Dictionary>();
     private String english;
     private String vietnamese;
 
