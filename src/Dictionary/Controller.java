@@ -75,6 +75,7 @@ public class Controller implements Initializable {
             a.setVietnamese(word[i]) ;
             a.setEnglish(anh.get(i));
             data.add(a);
+            list.add(a);
         }
         english.setCellValueFactory(new PropertyValueFactory<>("english"));
         tableView.setItems(data);
@@ -152,7 +153,7 @@ public class Controller implements Initializable {
         BufferedWriter bw = null;
         FileWriter fw = null;
         try {
-            String newdata = "\n\n" + textArea.getText();
+            String newdata = "@" + textArea.getText();
 
             File file = new File("anhviet109K.txt");
 
@@ -191,6 +192,24 @@ public class Controller implements Initializable {
     public void Delete (ActionEvent e){
         Dictionary selected = tableView.getSelectionModel().getSelectedItem();
         data.remove(selected);
+        list.remove(selected);
+
+        try {
+
+            File f = new File("anhviet109K.txt");
+            FileWriter fw = new FileWriter(f);
+
+            for(int i = 0 ;i < list.size();i++){
+                fw.write(list.get(i).getVietnamese()+"@");
+            }
+
+            System.out.println("Viet file xong!");
+
+        } catch (IOException ex) {
+
+            ex.printStackTrace();
+
+        }
     }
     public void Speech(ActionEvent event) {
         dictionary = tableView.getSelectionModel().getSelectedItem();
