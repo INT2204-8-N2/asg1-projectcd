@@ -53,7 +53,7 @@ public class Controller implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        String fileName = "C:\\Users\\ADMIN\\IdeaProjects\\asg1-projectcd5\\anhviet109K.txt";//bạn hãy thay đổi đường dẫn tới file của bạn
+        String fileName = "anhviet109K.txt";//bạn hãy thay đổi đường dẫn tới file của bạn
         String content = null;//đưa về chuẩn utf-8
         try {
             content = new String(Files.readAllBytes(Paths.get(fileName)),
@@ -68,7 +68,7 @@ public class Controller implements Initializable {
             String[] b;
             String[] a;
             b=w.split("/");
-            anh.add(b[0].substring(1));
+            anh.add(b[0]);
         }
         for (int i=0;i<word.length;i++){
             Dictionary a = new Dictionary();
@@ -154,7 +154,7 @@ public class Controller implements Initializable {
         try {
             String newdata = "\n\n" + textArea.getText();
 
-            File file = new File("C:\\Users\\Asus K43\\Downloads\\anhviet109K.txt");
+            File file = new File("anhviet109K.txt");
 
             // kiểm tra nếu file chưa có thì tạo file mới
             if (!file.exists()) {
