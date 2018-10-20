@@ -122,7 +122,7 @@ public class Controller implements Initializable {
         BufferedWriter bw = null;
         FileWriter fw = null;
         try {
-            String newdata = "@" + textArea.getText();
+            String newdata = "\n@" + anh.getText() + "/" + textArea.getText();
 
             File file = new File("anhviet109K.txt");
 
