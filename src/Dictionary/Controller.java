@@ -186,7 +186,7 @@ public class Controller implements Initializable {
             anh.setText(dictionary.getEnglish());
             textArea.setText(dictionary.getVietnamese());
             row = tableView.getSelectionModel().getSelectedIndex();
-            Disable(true);
+            Disable(false);
         }
     }
     public void Delete (ActionEvent e){
