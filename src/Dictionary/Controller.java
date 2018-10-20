@@ -113,43 +113,12 @@ public class Controller implements Initializable {
     }
 
     @FXML
-    public void Save(ActionEvent event) {
-        try {
-            dictionary = new Dictionary();
-            dictionary.setEnglish(anh.getText());
-            dictionary.setVietnamese(textArea.getText());
-
-            if (row == 0) {
-                data.add(dictionary);
-            } else {
-                data.set(row, dictionary);
-            }
-            tableView.setItems(data);
-            Disable(true);
-            Reset();
-        } catch (NumberFormatException ex) {
-            Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-    @FXML
-    public void Edit(ActionEvent event) {
-        try {
-            if (dictionary != null) {
-                Disable(false);
-            } else {
-                Disable(true);
-            }
-        } catch (Exception ex) {
-            Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-
-    public void Add (ActionEvent e){
+    public void Add(ActionEvent event) {
         Dictionary dictionary = new Dictionary();
         dictionary.setVietnamese(textArea.getText());
         dictionary.setEnglish(anh.getText());
         data.add(dictionary);
-        Disable(false);
+        list.add(dictionary);
         BufferedWriter bw = null;
         FileWriter fw = null;
         try {
@@ -178,6 +147,37 @@ public class Controller implements Initializable {
                 ex.printStackTrace();
             }
         }
+    }
+    @FXML
+    public void Edit(ActionEvent event) {
+        dictionary = new Dictionary();
+        dictionary.setEnglish(anh.getText());
+        dictionary.setVietnamese(textArea.getText());
+        data.set(row, dictionary);
+        list.set(row, dictionary);
+
+        try {
+
+            File f = new File("anhviet109K.txt");
+            FileWriter fw = new FileWriter(f);
+
+            for(int i = 0 ;i < list.size();i++){
+                fw.write(list.get(i).getVietnamese()+"@");
+            }
+
+            System.out.println("Viet file xong!");
+
+        } catch (IOException ex) {
+
+            ex.printStackTrace();
+
+        }
+    }
+
+    public void New (ActionEvent e){
+        anh.setDisable(false);
+        anh.setText("");
+        textArea.setText("");
     }
     @FXML
     public void tableClick(MouseEvent e) throws IOException {
