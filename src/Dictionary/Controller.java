@@ -101,45 +101,59 @@ public class Controller implements Initializable {
         tableView.setItems(sortedData);
     }
 
-//
-//    private void Disable(boolean check) {
-//        anh.setDisable(check);
-//    }
-//
-//
-//    private void Reset() {
-//          anh.setText("");
-//        textArea.setText("");
-//    }
+
+    private void Disable(boolean check) {
+        anh.setDisable(check);
+    }
+
+
+    private void Reset() {
+          anh.setText("");
+        textArea.setText("");
+    }
 
     @FXML
-    public void Add(ActionEvent event) {
-//        try {
-//            dictionary = new Dictionary();
-//            dictionary.setEnglish(anh.getText());
-//            dictionary.setVietnamese(textArea.getText());
-//
-//            if (row == 0) {
-//                data.add(dictionary);
-//            } else {
-//                data.set(row, dictionary);
-//            }
-//           // tableView.setItems(data);
-//            Disable(true);
-//            Reset();
-//        } catch (NumberFormatException ex) {
-//            Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
-//        }
+    public void Save(ActionEvent event) {
+        try {
+            dictionary = new Dictionary();
+            dictionary.setEnglish(anh.getText());
+            dictionary.setVietnamese(textArea.getText());
+
+            if (row == 0) {
+                data.add(dictionary);
+            } else {
+                data.set(row, dictionary);
+            }
+            tableView.setItems(data);
+            Disable(true);
+            Reset();
+        } catch (NumberFormatException ex) {
+            Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    @FXML
+    public void Edit(ActionEvent event) {
+        try {
+            if (dictionary != null) {
+                Disable(false);
+            } else {
+                Disable(true);
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public void Add (ActionEvent e){
         Dictionary dictionary = new Dictionary();
         dictionary.setVietnamese(textArea.getText());
         dictionary.setEnglish(anh.getText());
         data.add(dictionary);
-        list.add(dictionary);
-    //    Disable(false);
+        Disable(false);
         BufferedWriter bw = null;
         FileWriter fw = null;
         try {
-            String newdata = "\n@" + anh.getText()+ "/" + "\n" + textArea.getText();
+            String newdata = "@" + textArea.getText();
 
             File file = new File("anhviet109K.txt");
 
@@ -164,43 +178,6 @@ public class Controller implements Initializable {
                 ex.printStackTrace();
             }
         }
-        anh.setText("");
-        textArea.setText("");
-    }
-    @FXML
-    public void Edit(ActionEvent event) {
-        anh.setDisable(false);
-        Dictionary dictionary = new Dictionary();
-        dictionary.setEnglish(anh.getText());
-        dictionary.setVietnamese(textArea.getText());
-        data.set(row, dictionary);
-        list.set(row, dictionary);
-        System.out.println(list.get(row).getEnglish());
-        System.out.println(list.get(row).getVietnamese());
-        try {
-
-            File f = new File("anhviet109K.txt");
-            FileWriter fw = new FileWriter(f);
-
-            for(int i = 0 ;i < list.size();i++){
-                fw.write(list.get(i).getVietnamese()+"@");
-            }
-
-            System.out.println("Viet file xong!");
-
-        } catch (IOException ex) {
-
-            ex.printStackTrace();
-
-        }
-
-    }
-
-    public void New (ActionEvent e){
-        anh.setDisable(false);
-        anh.setText("");
-        textArea.setText("");
-
     }
     @FXML
     public void tableClick(MouseEvent e) throws IOException {
@@ -209,6 +186,7 @@ public class Controller implements Initializable {
             anh.setText(dictionary.getEnglish());
             textArea.setText(dictionary.getVietnamese());
             row = tableView.getSelectionModel().getSelectedIndex();
+            Disable(true);
         }
     }
     public void Delete (ActionEvent e){
