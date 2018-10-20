@@ -183,10 +183,11 @@ public class Controller implements Initializable {
     public void tableClick(MouseEvent e) throws IOException {
         if (MouseButton.PRIMARY == e.getButton() && e.getClickCount() == 1) {
             dictionary = tableView.getSelectionModel().getSelectedItem();
+            Disable(false);
             anh.setText(dictionary.getEnglish());
             textArea.setText(dictionary.getVietnamese());
             row = tableView.getSelectionModel().getSelectedIndex();
-            Disable(true);
+            
         }
     }
     public void Delete (ActionEvent e){
