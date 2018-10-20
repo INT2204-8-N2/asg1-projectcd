@@ -8,9 +8,8 @@
   <component name="ChangeListManager">
     <list default="true" id="585c8e33-b72c-430a-b7cc-d119ed3f9e66" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/anhviet109K.txt" beforeDir="false" afterPath="$PROJECT_DIR$/anhviet109K.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Dictionary/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Dictionary/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Dictionary/JavaFX.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Dictionary/JavaFX.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/asg1-projectcd/Dictionary/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/asg1-projectcd/Dictionary/Controller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/asg1-projectcd/Dictionary/JavaFX.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/asg1-projectcd/Dictionary/JavaFX.fxml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -170,7 +169,7 @@
     <session id="1117213593">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="2" />
+          <entry key="project.closed" value="3" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.2" value="1" />
           <entry key="project.open.time.9" value="2" />
@@ -250,8 +249,12 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Dictionary/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="236">
-              <caret line="178" column="56" selection-start-line="178" selection-start-column="56" selection-end-line="178" selection-end-column="56" />
+            <state relative-caret-position="117">
+              <caret line="194" column="30" selection-start-line="194" selection-start-column="30" selection-end-line="194" selection-end-column="30" />
+              <folding>
+                <element signature="e#3434#3435#0" expanded="true" />
+                <element signature="e#3471#3472#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -350,7 +353,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1540029613720" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1540029697363" />
     <property name="last_opened_file_path" value="$USER_HOME$/Downloads/Compressed/freetts-1.2/lib" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
@@ -450,12 +453,18 @@
       <option name="project" value="LOCAL" />
       <updated>1539961209856</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="upload delete">
+      <created>1540029628053</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1540029628053</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="878" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.30604026" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -466,7 +475,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49798658" visible="true" weight="0.3243968" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49798658" weight="0.3243968" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -579,8 +588,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Dictionary/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="236">
-          <caret line="178" column="56" selection-start-line="178" selection-start-column="56" selection-end-line="178" selection-end-column="56" />
+        <state relative-caret-position="117">
+          <caret line="194" column="30" selection-start-line="194" selection-start-column="30" selection-end-line="194" selection-end-column="30" />
+          <folding>
+            <element signature="e#3434#3435#0" expanded="true" />
+            <element signature="e#3471#3472#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
