@@ -81,8 +81,10 @@ public class Controller implements Initializable {
 //        data.add(dictionary);
         english.setCellValueFactory(new PropertyValueFactory<>("english"));
         tableView.setItems(data);
+        search.setDisable(true);
     }
     public void Search(){
+        search.setDisable(false);
         FilteredList<Dictionary> filteredData = new FilteredList<>(data, p -> true);
         search.textProperty().addListener((observable, oldValue, newValue) -> {
             filteredData.setPredicate(dictionary -> {
@@ -103,17 +105,6 @@ public class Controller implements Initializable {
         tableView.setItems(sortedData);
     }
 
-
-    private void Disable(boolean check) {
-        anh.setDisable(check);
-    }
-
-
-    private void Reset() {
-          anh.setText("");
-        textArea.setText("");
-    }
-
     @FXML
     public void Add(ActionEvent event) {
         dictionary = new Dictionary();
@@ -127,9 +118,10 @@ public class Controller implements Initializable {
             File f = new File("anhviet109K.txt");
             //    FileWriter fw = new FileWriter(f);
             BufferedWriter fw = new BufferedWriter( new OutputStreamWriter(new FileOutputStream(f), "UTF8"));
-            for(int i = 0 ;i < list.size();i++){
-                fw.write(list.get(i).getEnglish() + "/" + list.get(i).getVietnamese()+"@");
+            for(int i = 0 ;i < list.size()-1;i++){
+                fw.write(list.get(i).getVietnamese()+"@");
             }
+            fw.write(list.get(list.size()-1).getEnglish() + "/\n" + list.get(list.size()-1).getVietnamese()+"@");
             fw.close();
             System.out.println("Viet file xong!");
 
@@ -177,7 +169,6 @@ public class Controller implements Initializable {
             anh.setText(dictionary.getEnglish());
             textArea.setText(dictionary.getVietnamese());
             row = tableView.getSelectionModel().getSelectedIndex();
-            Disable(false);
         }
     }
     public void Delete (ActionEvent e){
@@ -203,8 +194,8 @@ public class Controller implements Initializable {
         }
     }
     public void Speech(ActionEvent event) {
-        dictionary = tableView.getSelectionModel().getSelectedItem();
-        Speak.Speak(dictionary.getEnglish());
+   //     dictionary = tableView.getSelectionModel().getSelectedItem();
+        Speak.Speak(anh.getText());
 
     }
     public void Translator(ActionEvent event) throws IOException, ParseException {
