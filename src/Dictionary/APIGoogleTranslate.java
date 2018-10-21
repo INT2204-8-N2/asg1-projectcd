@@ -13,11 +13,6 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
 
-/**
- *Lấy code trên mạng
- * @author Code4LifeVn
- */
-
 public class APIGoogleTranslate {
 
     public String content;
