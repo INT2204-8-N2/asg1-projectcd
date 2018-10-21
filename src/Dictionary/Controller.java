@@ -14,11 +14,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
+import org.json.simple.parser.ParseException;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -77,6 +75,10 @@ public class Controller implements Initializable {
             data.add(a);
             list.add(a);
         }
+//        Dictionary dictionary = new Dictionary();
+//        dictionary.setEnglish("Hello");
+//        dictionary.setVietnamese("Xin Chao");
+//        data.add(dictionary);
         english.setCellValueFactory(new PropertyValueFactory<>("english"));
         tableView.setItems(data);
     }
@@ -114,38 +116,27 @@ public class Controller implements Initializable {
 
     @FXML
     public void Add(ActionEvent event) {
-        Dictionary dictionary = new Dictionary();
-        dictionary.setVietnamese(textArea.getText());
+        dictionary = new Dictionary();
         dictionary.setEnglish(anh.getText());
+        dictionary.setVietnamese(textArea.getText());
         data.add(dictionary);
         list.add(dictionary);
-        BufferedWriter bw = null;
-        FileWriter fw = null;
+
         try {
-            String newdata = "\n@" + anh.getText() + "/" + textArea.getText();
 
-            File file = new File("anhviet109K.txt");
+            File f = new File("anhviet109K.txt");
+            //    FileWriter fw = new FileWriter(f);
+            BufferedWriter fw = new BufferedWriter( new OutputStreamWriter(new FileOutputStream(f), "UTF8"));
+            for(int i = 0 ;i < list.size();i++){
+                fw.write(list.get(i).getEnglish() + "/" + list.get(i).getVietnamese()+"@");
+            }
+            fw.close();
+            System.out.println("Viet file xong!");
 
-            // kiểm tra nếu file chưa có thì tạo file mới
-            if (!file.exists()) {
-                file.createNewFile();
-            }
-            // true = append file
-            fw = new FileWriter(file.getAbsoluteFile(), true);
-            bw = new BufferedWriter(fw);
-            bw.write(newdata);
-            System.out.println("Xong");
-        } catch (IOException ee) {
-            ee.printStackTrace();
-        } finally {
-            try {
-                if (bw != null)
-                    bw.close();
-                if (fw != null)
-                    fw.close();
-            } catch (IOException ex) {
-                ex.printStackTrace();
-            }
+        } catch (IOException ex) {
+
+            ex.printStackTrace();
+
         }
     }
     @FXML
@@ -159,12 +150,12 @@ public class Controller implements Initializable {
         try {
 
             File f = new File("anhviet109K.txt");
-            FileWriter fw = new FileWriter(f);
-
+        //    FileWriter fw = new FileWriter(f);
+            BufferedWriter fw = new BufferedWriter( new OutputStreamWriter(new FileOutputStream(f), "UTF8"));
             for(int i = 0 ;i < list.size();i++){
                 fw.write(list.get(i).getVietnamese()+"@");
             }
-
+            fw.close();
             System.out.println("Viet file xong!");
 
         } catch (IOException ex) {
@@ -197,12 +188,12 @@ public class Controller implements Initializable {
         try {
 
             File f = new File("anhviet109K.txt");
-            FileWriter fw = new FileWriter(f);
-
+           // FileWriter fw = new FileWriter(f);
+            BufferedWriter fw = new BufferedWriter( new OutputStreamWriter(new FileOutputStream(f), "UTF8"));
             for(int i = 0 ;i < list.size();i++){
                 fw.write(list.get(i).getVietnamese()+"@");
             }
-
+            fw.close();
             System.out.println("Viet file xong!");
 
         } catch (IOException ex) {
@@ -215,6 +206,9 @@ public class Controller implements Initializable {
         dictionary = tableView.getSelectionModel().getSelectedItem();
         Speak.Speak(dictionary.getEnglish());
 
+    }
+    public void Translator(ActionEvent event) throws IOException, ParseException {
+        textArea.setText(Translate.Translate(anh.getText()));
     }
 }
 
