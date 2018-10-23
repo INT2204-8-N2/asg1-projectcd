@@ -1,6 +1,17 @@
 #pane{
-    -fx-background-image: url("mewtwo.jpg");
+    -fx-background-image: url("background.jpg");
     -fx-background-repeat: stretch;
     -fx-background-size: 956 640;
     -fx-background-position: center center;
 }
+
+#search {
+    -fx-graphic: url("search.jpg");
+}
+#speak {
+    -fx-graphic: url("speak.jpg");
+}
+#ev {
+     -fx-graphic: url("ev.jpg");
+}
+

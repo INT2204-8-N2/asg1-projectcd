@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.text.*?>
 <?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
@@ -14,20 +12,20 @@
           <TableColumn fx:id="english" prefWidth="199.0" text="English" />
         </columns>
       </TableView>
-      <Button layoutX="599.0" layoutY="96.0" mnemonicParsing="false" onAction="#New" text="New" />
-      <Button layoutX="843.0" layoutY="96.0" mnemonicParsing="false" onAction="#Edit" text="Edit" />
-      <Button layoutX="876.0" layoutY="583.0" mnemonicParsing="false" onAction="#Add" text="Add" />
-      <TextField fx:id="anh" layoutX="350.0" layoutY="96.0" promptText="Tiếng Anh" />
-      <TextField fx:id="search" layoutX="61.0" layoutY="49.0" promptText="Nhập từ" />
-      <TextArea fx:id="textArea" layoutX="350.0" layoutY="152.0" prefHeight="407.0" prefWidth="582.0" />
-      <Button layoutX="269.0" layoutY="49.0" mnemonicParsing="false" onAction="#Search" text="Search" />
+      <Button id="new" contentDisplay="TEXT_ONLY" ellipsisString="" layoutX="797.0" layoutY="185.0" mnemonicParsing="false" onAction="#New" prefHeight="36.0" prefWidth="44.0" text="New" />
+      <Button id="edit" alignment="CENTER" contentDisplay="TEXT_ONLY" ellipsisString="" layoutX="376.0" layoutY="185.0" mnemonicParsing="false" onAction="#Edit" prefHeight="36.0" prefWidth="44.0" text="Edit" />
+      <Button id="add" contentDisplay="TEXT_ONLY" ellipsisString="" layoutX="862.0" layoutY="185.0" mnemonicParsing="false" onAction="#Add" prefHeight="36.0" prefWidth="44.0" text="Add" />
+      <TextField fx:id="anh" layoutX="376.0" layoutY="121.0" prefHeight="36.0" prefWidth="216.0" promptText="Tiếng Anh" />
+      <TextField fx:id="search" layoutX="54.0" layoutY="55.0" prefHeight="36.0" prefWidth="149.0" promptText="Nhập từ" />
+      <TextArea fx:id="textArea" layoutX="376.0" layoutY="248.0" prefHeight="310.0" prefWidth="530.0" promptText="Nội dung" />
+      <Button id="search" contentDisplay="GRAPHIC_ONLY" ellipsisString="" layoutX="231.0" layoutY="55.0" mnemonicParsing="false" onAction="#Search" prefHeight="36.0" prefWidth="44.0" text="Search" />
       <Text layoutX="403.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dictionary - Team ProjectCD">
          <font>
             <Font name=".VnBook Antiqua Bold" size="36.0" />
          </font>
       </Text>
-      <Button layoutX="719.0" layoutY="96.0" mnemonicParsing="false" onAction="#Delete" text="Delete" />
-      <Button layoutX="499.0" layoutY="96.0" mnemonicParsing="false" onAction="#Speech" text="Speak" />
-      <Button layoutX="280.0" layoutY="258.0" mnemonicParsing="false" onAction="#Translator" text="E-V" />
+      <Button contentDisplay="TEXT_ONLY" ellipsisString="" layoutX="440.0" layoutY="185.0" mnemonicParsing="false" onAction="#Delete" prefHeight="36.0" prefWidth="44.0" text="Del" />
+      <Button id="speak" contentDisplay="GRAPHIC_ONLY" ellipsisString="" layoutX="611.0" layoutY="117.0" mnemonicParsing="false" onAction="#Speech" prefHeight="36.0" prefWidth="44.0" text="Speak" />
+      <Button id="ev" contentDisplay="GRAPHIC_ONLY" ellipsisString="" layoutX="690.0" layoutY="117.0" mnemonicParsing="false" onAction="#Translator" prefHeight="36.0" prefWidth="44.0" text="E-V" />
    </children>
 </AnchorPane>
